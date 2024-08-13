@@ -24,7 +24,7 @@ import jwt from "jsonwebtoken"
         return res.status(401).json({ message: "Invalid credentials!" });
       }
   
-      const jwtSecret = process.env.jwt_secret;
+      const jwtSecret = process.env.JWT_SECRECT;
       const token = jwt.sign({ id: user.id }, jwtSecret, { expiresIn: '7d' });
   
       res.status(200)
