@@ -21,10 +21,10 @@ const Register=async(req,res)=>{
             password: hashedPassword
         })
 
-        const savaNewUser=await newUser.save()
+        const saveNewUser=await newUser.save()
 
         const JWTtoken=jwt.sign(
-            {id:savaNewUser._id,email:savaNewUser.email},
+            {id:saveNewUser._id,email:saveNewUser.email},
             process.env.JWT_SECRET,
             {expressIn:'1h'}
         )
