@@ -20,19 +20,17 @@ const Register = async (req, res) => {
       password: hashedPassword,
     });
 
-    const savaNewUser = await newUser.save();
+        const savaNewUser=await newUser.save()
 
-    const JWTtoken = jwt.sign(
-      { id: savaNewUser._id, email: savaNewUser.email },
-      process.env.JWT_SECRET,
-      { expressIn: "1h" }
-    );
-    return res
-      .status(201)
-      .json({ message: "user register successfully", token: JWTtoken });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-};
-
-export default Register;
+        const JWTtoken=jwt.sign(
+            {id:savaNewUser._id,email:savaNewUser.email},
+            process.env.JWT_SECRET,
+            {expressIn:'1h'}
+        )
+        return res.status(201).json({message:"user register successfully",token:JWTtoken})
+    }
+catch(error){
+    return res.status(500).json({error:error.message})
+}
+}
+module.exports = Register;
