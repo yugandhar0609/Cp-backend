@@ -6,18 +6,6 @@ const Register=async(req,res)=>{
 
     const{userName,email,phoneNumber,password,}=req.body
 
-    if(!userName){
-        return res.status(400).json({error:"Please fill the userName field"})
-    }
-    if(!email){
-        return res.status(400).json({error:"Please fill the email field"})
-    }
-    if(!phoneNumber){
-        return res.status(400).json({error:"Please fill the phoneNumber field"})
-    }
-    if(!password){
-        return res.status(400).json({error:"Please fill the password field"})
-    }
     try{
         const existingUser=await userSchema.findOne({email:email});
         if(existingUser){
