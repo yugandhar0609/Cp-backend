@@ -1,24 +1,26 @@
 import mongoose from "mongoose";
 
 const FormSchema = new mongoose.Schema({
-    name:{
+    St_name:{
         type:String,
         require:true,
     },
-    email:{
+    St_email:{
         type:String,
         require:true,
-        unique: true,
     },
-    phoneNumber:{
+    St_phoneNumber:{
         type:String,
         require:true,
-        unique: true,
     },
-    password:{
+    St_state:{
         type:String,
         require:true,
-        unique: true,
+    },
+    St_country:{
+        type:String,
+        require:true,
+
     },
   
 
@@ -26,5 +28,5 @@ const FormSchema = new mongoose.Schema({
     timestamps:true
 });
 
-const UserDB = mongoose.model("NewUser", FormSchema);
-export default UserDB;
+const FormDB = mongoose.model("FormDetails", FormSchema);
+export default FormDB;
