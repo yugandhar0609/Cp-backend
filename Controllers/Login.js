@@ -22,7 +22,7 @@ export default loginUser = async (req,res)=>{
 
     } catch (error) {
         res.status(400).json({
-            message:message.error
+            message:error.message
         })
     }
 }
