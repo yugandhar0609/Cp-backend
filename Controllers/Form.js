@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 const PostForm = async (req, res) => {
   try {
-    const { St_name, St_email, St_phoneNumber, St_state, St_country } =
+    const { St_name, St_email, St_phoneNumber, St_state, St_country,St_pincode } =
       req.body;
 
     const formdata = new FormDB({
@@ -12,6 +12,7 @@ const PostForm = async (req, res) => {
       St_phoneNumber,
       St_state,
       St_country,
+      St_pincode
     });
     await formdata.save();
 
@@ -37,6 +38,7 @@ const PostForm = async (req, res) => {
       - Phone Number: ${St_phoneNumber}
       - State: ${St_state}
       - Country: ${St_country}
+      - Pincode: ${St_pincode}
       
       Thank you for submitting the form.
       
@@ -52,7 +54,7 @@ const PostForm = async (req, res) => {
       .status(200)
       .json({ message: "Form posted and email sent successfully.", formdata });
   } catch (error) {
-    console.error("Error in PostForm or sending email:", error); // Log the actual error
+    console.error("Error in PostForm or sending email:", error); 
     return res
       .status(500)
       .json({ message: "Error in posting form or sending email." });

@@ -10,7 +10,7 @@ const FormSchema = new mongoose.Schema({
         require:true,
     },
     St_phoneNumber:{
-        type:String,
+        type:Number,
         require:true,
     },
     St_state:{
@@ -22,6 +22,11 @@ const FormSchema = new mongoose.Schema({
         require:true,
 
     },
+    St_pincode:{
+        type:Number,
+        require:true,
+    },
+
   
 
 },{
