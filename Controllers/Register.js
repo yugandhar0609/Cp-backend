@@ -22,11 +22,7 @@ const Register = async (req, res) => {
 
         const savaNewUser=await newUser.save()
 
-        const JWTtoken=jwt.sign(
-            {id:savaNewUser._id,email:savaNewUser.email},
-            process.env.JWT_SECRET,
-            {expressIn:'1h'}
-        )
+        const JWTtoken=jwt.sign({id:savaNewUser._id,email:savaNewUser.email},process.env.JWT_SECRET,{expressIn:'1h'})
         return res.status(201).json({message:"user register successfully",token:JWTtoken})
     }
 catch(error){
