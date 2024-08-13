@@ -28,11 +28,6 @@ import jwt from "jsonwebtoken"
       const token = jwt.sign({ id: user.id }, jwtSecret, { expiresIn: '7d' });
   
       res.status(200)
-        .cookie("token", token, {
-          httpOnly: true,
-          maxAge:7,
-          secure: true,
-        })
         .json({ message: "Login successful.", token });
     } catch (error) {
         res.status(400).json({
